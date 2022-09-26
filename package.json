@@ -1,0 +1,31 @@
+{
+  "name": "k8s_edu_middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkken12/k8sEduMiddleware.git"
+  },
+  "author": "tykim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkken12/k8sEduMiddleware/issues"
+  },
+  "homepage": "https://github.com/tkken12/k8sEduMiddleware#readme"
+}

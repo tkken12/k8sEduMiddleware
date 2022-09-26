@@ -1,0 +1,16 @@
+{
+    "protocol": "http",
+    "port"    : 35000,
+    "brokerIP": "192.168.0.6",
+    "brokerPort": 30443,
+    "mariaDB": {
+        "url": "",
+        "port": 3306,
+        "id"  : "",
+        "passwd": ""
+    },
+    "cert": {
+        "keyFileName" : "server.key",
+        "certFileName": "server.cert"
+    }
+}
