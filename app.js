@@ -3,13 +3,13 @@ const app = express()
 const config = require("./config.json") 
 const fs = require("fs")
 const bodyParser = require("body-parser")
-const { constants } = require("./common/const")
+const { Constants } = require("./common/const")
 const routes = require("./routes/routes")
 const morgan = require("morgan")
 const { Logger, Stream } = require("./logger/loggerConfig")
 const cors = require("cors")
 
-require("dotenv").config()
+require("dotenv").config({path: ".env"})
 
 const init = () => { 
 
@@ -21,11 +21,11 @@ const init = () => {
     app.use("/api/v1", routes)
 
     switch( config.protocol ) {
-        case constants.HTTP:
+        case Constants.HTTP:
             runHttp()
             break 
 
-        case constants.HTTPS:
+        case Constants.HTTPS:
             runHttps()
             break
     }
@@ -43,7 +43,7 @@ const runHttps = () => {
 
     try { 
         https.createServer(certs, app).listen(config.port, () => { 
-            Logger.info(`middleware running on https://${constants.LOCAL_HOST}:${config.port}`)
+            Logger.info(`middleware running on https://${Constants.LOCAL_HOST}:${config.port}`)
         })
 
     } catch (err) { 
@@ -57,7 +57,7 @@ const runHttp = () => {
 
     try { 
         http.createServer(app).listen(config.port,  () => {
-            Logger.info(`middleware running on http://${constants.LOCAL_HOST}:${config.port}`)
+            Logger.info(`middleware running on http://${Constants.LOCAL_HOST}:${config.port}`)
         })
 
     } catch(err) {

@@ -1,13 +1,16 @@
-const { default: axios } = require("axios")
-const request = require("axios")
+const axios = require("axios")
+const dotenv = require("dotenv")
+
+dotenv.config();
+
 
 let axiosInstance = axios.create({
-    baseURL: `${process.env["BROKER_IP_ADDR"]}:${process.env["BROKER_PORT"]}`,
+    baseURL: `${process.env["BROKER_PROTOCOL"]}://${process.env["BROKER_IP_ADDR"]}:${process.env["BROKER_PORT"]}`,
     timeout: process.env["BROKER_REQ_TIMEOUT"],
     keepAlive: true,
     headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                }
+             }
 })
 
 const ReqeustHandler = ( props ) => {
@@ -18,8 +21,9 @@ const ReqeustHandler = ( props ) => {
     })
 }
 
+const GetMethodQueryParser = ( query ) => { return JSON.stringify(query) }
 
-
-export {
-    ReqeustHandler
+module.exports = {
+    ReqeustHandler,
+    GetMethodQueryParser
 }

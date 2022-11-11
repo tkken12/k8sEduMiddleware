@@ -1,7 +1,7 @@
 const router = require("express").Router()
 
-const CreatePod = () => {
+router.get("/", (req, res ) => { 
 
-}
+})
 
-module.exports = CreatePod
+module.exports = router
