@@ -1,7 +1,7 @@
 {
     "protocol": "http",
     "port"    : 35000,
-    "brokerIP": "192.168.0.6",
+    "brokerIP": "localhost",
     "brokerPort": 30443,
     "mariaDB": {
         "url": "",
