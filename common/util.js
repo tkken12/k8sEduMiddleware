@@ -13,7 +13,7 @@ let axiosInstance = axios.create({
              }
 })
 
-const ReqeustHandler = ( props ) => {
+const RequestHandler = ( props ) => {
     return new Promise( (resolve, reject) => { 
         axiosInstance[props.method](props.reqPath, props.query)
         .then ( res => resolve(res) )
@@ -21,9 +21,17 @@ const ReqeustHandler = ( props ) => {
     })
 }
 
+const SendResponse = (res, message) => {
+    res.set({"Content-Type": "application/json"})
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
+    res.send(message)
+}
+
 const GetMethodQueryParser = ( query ) => { return JSON.stringify(query) }
 
 module.exports = {
-    ReqeustHandler,
-    GetMethodQueryParser
+    RequestHandler,
+    GetMethodQueryParser,
+    SendResponse,
 }
