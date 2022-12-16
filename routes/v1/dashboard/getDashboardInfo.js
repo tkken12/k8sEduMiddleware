@@ -18,7 +18,7 @@ router.use("/", (req, res) => {
         message = []
         code    = Constants["HTTP_STATUS_CODE"][401]  
     }).finally( () => {
-        SendResponse(res, { code: code, message: message }) 
+        SendResponse(res, { code: code, message: !!message["Message"] !== false ? message["Message"] : ""  }) 
     })
 })
 
